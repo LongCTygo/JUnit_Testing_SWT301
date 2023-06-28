@@ -1,5 +1,8 @@
 package utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class NumberUtils {
 
     public static boolean isPrime(int number) {
@@ -31,5 +34,16 @@ public class NumberUtils {
         }
 
         return original == reversed;
+    }
+
+    public static Map<Integer, Integer> primeFactorization(int number) {
+        Map<Integer, Integer> factors = new HashMap<>();
+        for (int factor = 2; factor <= number; factor++) {
+            while (number % factor == 0) {
+                factors.put(factor, factors.getOrDefault(factor, 0) + 1);
+                number /= factor;
+            }
+        }
+        return factors;
     }
 }

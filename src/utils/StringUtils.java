@@ -14,7 +14,7 @@ public class StringUtils {
         while (matcher.find()){
             matches.add(matcher.group());
         }
-        return (String[]) matches.toArray();
+        return matches.toArray(new String[0]);
     }
 
     public boolean isStringEmail(String s){
